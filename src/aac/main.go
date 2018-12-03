@@ -1,4 +1,4 @@
-package aac
+package main
 
 import (
 	"aac/api"
@@ -11,7 +11,7 @@ type App struct{}
 
 func main() {
 	app := new(App)
-	app.Run(":9000")
+	app.Run("localhost:9000")
 }
 
 func (app App) Run(listeningAddr string) {

@@ -1,6 +1,7 @@
 package api
 
 import (
+	"aac/controllers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,9 +11,15 @@ func Handlers() *gin.Engine {
 	v1 := engine.Group("/v1")
 	{
 
-		_ := v1.Group("/admin")
+		v1.Group("/admin")
 		{
 
+		}
+
+		public := v1.Group("")
+		{
+			public.GET("", controllers.CheckRights)
+			public.Group("/resources").GET(controllers.Get())
 		}
 	}
 
